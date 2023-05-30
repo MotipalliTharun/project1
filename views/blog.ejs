@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('header') %>
+
+  <h1>Welcome to My Blog</h1>
+
+  <h2>Recent Posts</h2>
+  <% if (blogPosts.length === 0) { %>
+    <p>No posts yet.</p>
+  <% } else { %>
+    <% blogPosts.forEach((post, index) => { %>
+      <h3><a href="/blog/<%= index %>"><%= post.title %></a></h3>
+      <p><%= post.content %></p>
+      <hr>
+    <% }); %>
+  <% } %>
+
+  <a href="/new">Create a new post</a>
+</body>
+</html>
